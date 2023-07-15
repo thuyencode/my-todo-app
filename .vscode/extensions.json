@@ -6,6 +6,6 @@
     "standard.vscode-standard",
     "moalamri.inline-fold",
     "wix.glean",
-    "antfu.unocss"
+    "bradlc.vscode-tailwindcss"
   ]
 }

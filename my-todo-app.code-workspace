@@ -8,8 +8,8 @@
     "prettier.configPath": ".prettierrc",
     "prettier.prettierPath": "./node_modules/prettier",
     "files.associations": {
-      // "*.css": "tailwindcss",
-      // "*.scss": "tailwindcss"
+      "*.css": "tailwindcss",
+      "*.scss": "tailwindcss"
     },
     "editor.quickSuggestions": {
       "strings": true
