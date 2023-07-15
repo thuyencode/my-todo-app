@@ -1,11 +1,11 @@
 {
   "recommendations": [
-    "bradlc.vscode-tailwindcss",
     "burkeholland.simple-react-snippets",
     "esbenp.prettier-vscode",
     "dbaeumer.vscode-eslint",
     "standard.vscode-standard",
     "moalamri.inline-fold",
-    "wix.glean"
+    "wix.glean",
+    "antfu.unocss"
   ]
 }

@@ -8,21 +8,17 @@
     "prettier.configPath": ".prettierrc",
     "prettier.prettierPath": "./node_modules/prettier",
     "files.associations": {
-      "*.css": "tailwindcss",
-      "*.scss": "tailwindcss"
+      // "*.css": "tailwindcss",
+      // "*.scss": "tailwindcss"
     },
     "editor.quickSuggestions": {
       "strings": true
     },
-    "tailwindCSS.emmetCompletions": true,
-    "tailwindCSS.classAttributes": [
-      "class",
-      "className",
-      "ngClass"
-    ],
-    "cSpell.words": [
-      "DECRE",
-      "INCRE"
-    ]
+    // "tailwindCSS.emmetCompletions": true,
+    // "tailwindCSS.classAttributes": [
+    //   "class",
+    //   "className",
+    //   "ngClass"
+    // ]
   }
 }
