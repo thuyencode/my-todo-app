@@ -8,9 +8,6 @@ export default {
     extend: {
       height: {
         screen: '100dvh'
-      },
-      fontFamily: {
-        body: ['Abel', 'font-sans', 'system-ui']
       }
     }
   },
