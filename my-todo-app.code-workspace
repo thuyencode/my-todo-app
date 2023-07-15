@@ -14,11 +14,11 @@
     "editor.quickSuggestions": {
       "strings": true
     },
-    // "tailwindCSS.emmetCompletions": true,
-    // "tailwindCSS.classAttributes": [
-    //   "class",
-    //   "className",
-    //   "ngClass"
-    // ]
+    "tailwindCSS.emmetCompletions": true,
+    "tailwindCSS.classAttributes": [
+      "class",
+      "className",
+      "ngClass"
+    ]
   }
 }
