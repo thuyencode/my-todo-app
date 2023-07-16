@@ -36,7 +36,7 @@ function NewTodoForm ({ onSubmit }) {
         className='group btn btn-info btn-active btn-sm capitalize'
         type='submit'
       >
-        <span className='inline-flex flex-row items-center group-hover:text-white'>
+        <span className='inline-flex items-center group-hover:text-white'>
           Add
           <Icon id='plus' className='ml-1 h-4 w-4 stroke-2' />
         </span>

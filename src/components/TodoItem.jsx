@@ -12,15 +12,17 @@ function TodoItem ({ id, title, completed, toggleTodo, deleteTodo }) {
         onChange={(e) => toggleTodo(id, e.target.checked)}
       />
       <label htmlFor={id}>{title}</label>
-      <button
-        className='group btn btn-error btn-outline btn-xs capitalize'
-        onClick={() => deleteTodo(id)}
-      >
-        <span className='inline-flex flex-row items-center text-sm group-hover:text-white'>
-          Delete
-          <Icon id='trash' className='ml-1 h-4 w-4 stroke-2' />
-        </span>
-      </button>
+      <span className='grow inline-flex'>
+        <button
+          className='ml-auto group btn btn-error btn-outline btn-xs capitalize'
+          onClick={() => deleteTodo(id)}
+        >
+          <span className='inline-flex items-center text-sm group-hover:text-white'>
+            Delete
+            <Icon id='trash' className='ml-1 h-4 w-4 stroke-2' />
+          </span>
+        </button>
+      </span>
     </li>
   )
 }
