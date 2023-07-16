@@ -1,35 +1,53 @@
-/* eslint-disable no-unused-vars */
-import { useState } from 'react'
+/* eslint-disable no-undef */
+import { useEffect, useState } from 'react'
+import NewTodoForm from './components/NewTodoForm'
+import TodoList from './components/TodoList'
+
+const APP_ID = 'my-todo-app'
 
 function App () {
-  const [newItem, setNewItem] = useState('')
+  const [todos, setTodos] = useState(() => {
+    const localValue = localStorage.getItem(APP_ID)
+
+    if (localValue == null) return []
+    return JSON.parse(localValue)
+  })
+
+  useEffect(() => {
+    localStorage.setItem(APP_ID, JSON.stringify(todos))
+  }, [todos])
+
+  const addTodo = (newTodo) => {
+    setTodos((currentTodos) => {
+      return [
+        ...currentTodos,
+        { id: crypto.randomUUID(), title: newTodo, completed: false }
+      ]
+    })
+
+    console.log(todos)
+  }
+
+  const toggleTodo = (id, completed) => {
+    setTodos((currentTodos) => {
+      return currentTodos.map((todo) => {
+        if (todo.id === id) return { ...todo, completed }
+
+        return todo
+      })
+    })
+  }
+
+  const deleteTodo = (id) => {
+    setTodos((currentTodos) => {
+      return currentTodos.filter((todo) => todo.id !== id)
+    })
+  }
 
   return (
     <>
-      <form className='new-item-form'>
-        <div className='form-row'>
-          <label htmlFor='item'>New Item</label>
-          <input type='text' name='item' id='item' />
-        </div>
-        <button className='btn'>Add</button>
-      </form>
-      <h1 className='header'>Todo List</h1>
-      <ul className='list'>
-        <li>
-          <label htmlFor=''>
-            <input type='checkbox' name='' id='' />
-            Item 1
-          </label>
-          <button className='btn btn-danger'>Delete</button>
-        </li>
-        <li>
-          <label htmlFor=''>
-            <input type='checkbox' name='' id='' />
-            Item 2
-          </label>
-          <button className='btn btn-danger'>Delete</button>
-        </li>
-      </ul>
+      <NewTodoForm onSubmit={addTodo} />
+      <TodoList todos={todos} toggleTodo={toggleTodo} deleteTodo={deleteTodo} />
     </>
   )
 }
