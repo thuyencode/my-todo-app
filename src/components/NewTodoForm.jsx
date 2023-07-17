@@ -24,7 +24,7 @@ function NewTodoForm ({ onSubmit }) {
         New Todo
       </label>
       <input
-        className='input input-accent bg-white p-2.5 focus:outline-offset-0 dark:bg-slate-900'
+        className='input input-accent rounded-md bg-white p-2.5 focus:outline-offset-0 dark:bg-slate-900'
         type='text'
         name='newtodo'
         id='newtodo'
@@ -33,7 +33,7 @@ function NewTodoForm ({ onSubmit }) {
       />
 
       <button
-        className='group btn btn-info btn-active btn-sm capitalize'
+        className='group btn btn-info btn-active btn-sm rounded-md capitalize'
         type='submit'
       >
         <span className='inline-flex items-center group-hover:text-white'>

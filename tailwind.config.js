@@ -8,14 +8,13 @@ export default {
       //   screen: '100dvh'
       // },
       fontFamily: {
-        display: ['Inter', 'sans-serif', 'system-ui']
+        display: ['Inter', 'Noto Color Emoji', 'sans-serif', 'system-ui']
       }
     }
   },
   daisyui: {
     themes: ['light', 'dark']
   },
-  // eslint-disable-next-line no-undef
   plugins: [
     require('daisyui'),
     require('tailwind-scrollbar')({ nocompatible: true })
