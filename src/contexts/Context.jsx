@@ -4,13 +4,10 @@ import PropTypes from 'prop-types'
 import { createContext, useEffect, useRef, useState } from 'react'
 
 const APP_ID = 'my-todo-app'
-const colorSchemeDark = window.matchMedia('(prefers-color-scheme: dark)')
 
 export const AppContext = createContext()
 
 export const StateProvider = ({ children }) => {
-  const isMounted = useRef(false)
-
   const [todos, setTodos] = useState(() => {
     const localValue = localStorage.getItem(APP_ID)
 
@@ -19,52 +16,9 @@ export const StateProvider = ({ children }) => {
     return JSON.parse(localValue)
   })
 
-  const [darkMode, setDarkMode] = useState(() => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) && colorSchemeDark.matches)
-    ) {
-      return true
-    }
-
-    return false
-  })
-
   useEffect(() => {
     localStorage.setItem(APP_ID, JSON.stringify(todos))
   }, [todos])
-
-  useEffect(() => {
-    if (!isMounted.current) {
-      isMounted.current = true
-      return
-    }
-
-    if (darkMode) document.documentElement.classList.add('dark')
-    else document.documentElement.classList.remove('dark')
-  }, [darkMode])
-
-  useEffect(() => {
-    const matchColorScheme = () => {
-      if ('theme' in localStorage) return
-
-      if (colorSchemeDark.matches) document.documentElement.classList.add('dark')
-      else document.documentElement.classList.remove('dark')
-    }
-
-    colorSchemeDark.addEventListener('change', matchColorScheme)
-
-    return () => {
-      colorSchemeDark.removeEventListener('change', matchColorScheme)
-    }
-  })
-
-  const toggleDarkMode = () => {
-    const nextDarkMode = !darkMode
-
-    setDarkMode(nextDarkMode)
-    localStorage.theme = nextDarkMode ? 'dark' : 'light'
-  }
 
   const addTodo = (newTodo) => {
     setTodos((currentTodos) => {
@@ -99,10 +53,7 @@ export const StateProvider = ({ children }) => {
         todos,
         addTodo,
         toggleTodo,
-        deleteTodo,
-        darkMode,
-        setDarkMode,
-        toggleDarkMode
+        deleteTodo
       }}
     >
       {children}
