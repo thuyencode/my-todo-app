@@ -31,6 +31,10 @@ export const StateProvider = ({ children }) => {
   })
 
   useEffect(() => {
+    localStorage.setItem(APP_ID, JSON.stringify(todos))
+  }, [todos])
+
+  useEffect(() => {
     if (!isMounted.current) {
       isMounted.current = true
       return
