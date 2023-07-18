@@ -1,9 +1,0 @@
-@import url(https://fonts.bunny.net/css?family=inter:400|noto-color-emoji:400);
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-.checkbox:checked + label {
-  @apply line-through
-}
