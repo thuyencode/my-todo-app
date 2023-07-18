@@ -1,8 +1,9 @@
-import PropTypes from 'prop-types'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
+import { AppContext } from '../contexts/Context'
 import Icon from './Icon'
 
-function NewTodoForm ({ onSubmit }) {
+function NewTodoForm () {
+  const { addTodo } = useContext(AppContext)
   const [newTodo, setNewTodo] = useState('')
 
   const handleSubmit = (e) => {
@@ -10,7 +11,7 @@ function NewTodoForm ({ onSubmit }) {
 
     if (newTodo === '') return
 
-    onSubmit(newTodo)
+    addTodo(newTodo)
     setNewTodo('')
   }
 
@@ -43,10 +44,6 @@ function NewTodoForm ({ onSubmit }) {
       </button>
     </form>
   )
-}
-
-NewTodoForm.propTypes = {
-  onSubmit: PropTypes.func.isRequired
 }
 
 export default NewTodoForm
